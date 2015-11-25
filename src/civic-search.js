@@ -29,7 +29,7 @@ module.exports = {
    *
    * @returns {Promise}
    */
-  pollingPlace: function(opts) {},
+  places: function(opts) {},
 
   /**
    * Get information on upcoming election contests
@@ -38,6 +38,6 @@ module.exports = {
    *
    * @returns {Promise}
    */
-  electionContests: function(opts) {}
+  contests: function(opts) {}
 
 };
