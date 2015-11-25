@@ -1,0 +1,25 @@
+{
+  "name": "civic-search",
+  "version": "1.0.0",
+  "description": "A node wrapper for the Google Civic Information API",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/openwichita/civic-search"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "civic",
+    "voter",
+    "voting",
+    "vote",
+    "information",
+    "google",
+    "api",
+    "search"
+  ],
+  "author": "Seth Etter <sethetter@gmail.com> (http://sethetter.com)",
+  "license": "ISC"
+}
