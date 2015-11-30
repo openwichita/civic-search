@@ -20,7 +20,43 @@ module.exports = {
    *
    * @returns {Promise}
    */
-  elections: function(opts) {},
+  elections: function() {
+    return new Promise(function(resolve, reject) {
+      var urlBase = 'http://www.googleapis.com/civicinfo/v2/elections';
+      var query = '?key=GETTHEAPIKEYFROMSOMEWHERE';
+
+      var request = http.get(urlBase + query, function(res) {
+        var data = '';
+
+        res.setEncoding('utf8');
+        res.on('data', function(chunk) { data += chunk; });
+
+        res.on('end', function() {
+          var returnData = { elections: [] };
+          data = JSON.parse(data);
+
+          data.elections.forEach(function(election) {
+            var state = election.ocdDivisionId.match(/\/state:([a-z]+)/);
+            var place = election.ocdDivisionId.match(/\/place:([a-z]+)/);
+
+            if (state) state = state[1];
+            if (place) place = place[1];
+
+            returnData.elections.push({
+              id: election.id,
+              name: election.name,
+              date: election.electionDay,
+              division: { state: state, place: place }
+            });
+          });
+
+          return resolve(returnData);
+        });
+      });
+
+      request.on('error', reject);
+    });
+  },
 
   /**
    * Get information on polling and voting locations
