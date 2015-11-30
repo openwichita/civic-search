@@ -23,7 +23,7 @@
   "author": "Seth Etter <sethetter@gmail.com> (http://sethetter.com)",
   "license": "ISC",
   "devDependencies": {
-    "assert": "^1.3.0",
+    "chai": "^3.4.1",
     "mocha": "^2.3.4",
     "nock": "^3.3.2"
   }

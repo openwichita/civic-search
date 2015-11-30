@@ -1,6 +1,5 @@
 var CivicSearch = require('../src/civic-search');
-
-var assert = require('assert');
+var expect = require('chai').expect;
 
 // Setup our API request mocks
 require('./mocks')();
@@ -14,20 +13,20 @@ describe('CivicSearch.elections', function() {
       var vaPrimary = data.elections[1];
       var barringtonSchool = data.elections[3];
 
-      assert(typeof data === 'object');
-      assert(data.elections.length === 4);
+      expect(typeof data).to.equal('object');
+      expect(data.elections.length).to.equal(4);
 
-      assert(vaPrimary.id === '4167');
-      assert(vaPrimary.name === 'Virginia March Primary Election');
-      assert(vaPrimary.date === '2016-03-01');
+      expect(vaPrimary.id).to.equal('4167');
+      expect(vaPrimary.name).to.equal('Virginia March Primary Election');
+      expect(vaPrimary.date).to.equal('2016-03-01');
 
-      assert(typeof vaPrimary.division === 'object');
-      assert(vaPrimary.division.state === 'va');
-      assert(vaPrimary.division.place === null);
+      expect(typeof vaPrimary.division).to.equal('object');
+      expect(vaPrimary.division.state).to.equal('va');
+      expect(vaPrimary.division.place).to.equal(null);
 
-      assert(typeof barringtonSchool.division === 'object');
-      assert(barringtonSchool.division.state === 'ri');
-      assert(barringtonSchool.division.place === 'barrington');
+      expect(typeof barringtonSchool.division).to.equal('object');
+      expect(barringtonSchool.division.state).to.equal('ri');
+      expect(barringtonSchool.division.place).to.equal('barrington');
 
       done()
     }).catch(done);
