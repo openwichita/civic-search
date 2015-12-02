@@ -1,5 +1,6 @@
 var http = require('http');
 var Normalizer = require('./lib/normalizer');
+var QueryBuilder = require('./lib/query-builder');
 
 module.exports = {
   /**
@@ -23,10 +24,9 @@ module.exports = {
    */
   elections: function() {
     return new Promise(function(resolve, reject) {
-      var urlBase = 'http://www.googleapis.com/civicinfo/v2/elections';
-      var query = '?key=GETTHEAPIKEYFROMSOMEWHERE';
+      var url = QueryBuilder.elections.index();
 
-      var request = http.get(urlBase + query, function(res) {
+      var request = http.get(url, function(res) {
         var data = '';
 
         res.setEncoding('utf8');
