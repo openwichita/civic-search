@@ -1,11 +1,16 @@
 var nock = require('nock');
 
+// Set ENV var for GOOGLE_API_KEY
+var API_KEY = 'TESTAPIKEY';
+process.env.GOOGLE_API_KEY = API_KEY;
+
 module.exports = function() {
   /**
    * Mock HTTP responses from the Civic Info API
    */
   nock('http://www.googleapis.com/civicinfo/v2')
-  .get('/elections').query(true)
+  .get('/elections')
+  .query({ key: API_KEY })
   .reply(200, {
      "kind": "civicinfo#electionsQueryResponse",
      "elections": [

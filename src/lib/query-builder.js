@@ -6,6 +6,7 @@
  */
 
 var urlBase = 'http://www.googleapis.com/civicinfo/v2/';
+var API_KEY_PARAM = 'key=' + process.env.GOOGLE_API_KEY;
 
 module.exports = {
 
@@ -15,9 +16,8 @@ module.exports = {
      */
     index: function() {
       var url = urlBase + 'elections';
-      var query = '?key=GETTHEAPIKEYFROMSOMEWHERE';
 
-      return url + query;
+      return url + '?' + API_KEY_PARAM;
     }
   }
 

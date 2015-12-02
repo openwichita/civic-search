@@ -1,6 +1,10 @@
+// Load ENV vars from `.env`
+require('dotenv').load();
+
 var http = require('http');
 var Normalizer = require('./lib/normalizer');
 var QueryBuilder = require('./lib/query-builder');
+
 
 module.exports = {
   /**

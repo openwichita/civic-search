@@ -1,8 +1,8 @@
-var CivicSearch = require('../src/civic-search');
-var expect = require('chai').expect;
-
 // Setup our API request mocks
 require('./mocks')();
+
+var CivicSearch = require('../src/civic-search');
+var expect = require('chai').expect;
 
 describe('CivicSearch.elections', function() {
 
