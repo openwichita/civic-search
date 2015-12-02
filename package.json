@@ -2,7 +2,7 @@
   "name": "civic-search",
   "version": "1.0.0",
   "description": "A node wrapper for the Google Civic Information API",
-  "main": "index.js",
+  "main": "src/civic-search.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/openwichita/civic-search"
